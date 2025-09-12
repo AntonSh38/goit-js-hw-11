@@ -3,7 +3,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 // import 'https://cdnjs.cloudflare.com/ajax/libs/css-loader/2.3.0/css-loader.min.css';
 
-const lightbox = new SimpleLightbox('.gallery a', {
+export const gallery = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });

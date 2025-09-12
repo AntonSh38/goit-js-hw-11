@@ -7,6 +7,7 @@ import {
   clearGallery,
   showLoader,
   hideLoader,
+  gallery,
 } from './js/render-functions.js';
 
 const listEl = document.querySelector('.gallery');
