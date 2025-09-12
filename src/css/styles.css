@@ -27,6 +27,21 @@ img {
   column-gap: 24px;
 }
 
+.gallery-item {
+}
+.gallery-link {
+}
+.gallery-image {
+}
+.info {
+}
+.info-item {
+}
+.info-label {
+}
+.info-value {
+}
+
 .form {
   display: flex;
   justify-content: center;
@@ -75,4 +90,8 @@ input {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.is-hidden {
+  display: none;
 }
