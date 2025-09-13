@@ -37,17 +37,14 @@ function onFormSubmit(event) {
       listEl.innerHTML = createGallery(photosArr);
       gallery.refresh();
     })
-    .catch(error => {})
+    .catch(error => {
+      iziToast.error({
+        title: 'Error',
+        message: 'Something went wrong. Please try again later.',
+      });
+    })
     .finally(() => {
       hideLoader();
       formEl.reset();
     });
 }
-
-getImagesByQuery('car')
-  .then(response => {
-    console.log(response);
-  })
-  .catch(error => {
-    console.log(error);
-  });
