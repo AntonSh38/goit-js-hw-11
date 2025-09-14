@@ -7,20 +7,27 @@ import {
   clearGallery,
   showLoader,
   hideLoader,
-  gallery,
 } from './js/render-functions.js';
 
-const listEl = document.querySelector('.gallery');
 const formEl = document.querySelector('.form');
 
 formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
-  clearGallery();
-  showLoader();
 
   const inputQuerry = event.currentTarget.elements['search-text'].value.trim();
+
+  if (!inputQuerry) {
+    iziToast.warning({
+      title: 'Warning',
+      message: 'please enter a search query',
+    });
+    return;
+  }
+
+  clearGallery();
+  showLoader();
 
   getImagesByQuery(inputQuerry)
     .then(response => {
@@ -34,10 +41,10 @@ function onFormSubmit(event) {
         return;
       }
 
-      listEl.innerHTML = createGallery(photosArr);
-      gallery.refresh();
+      createGallery(photosArr);
     })
     .catch(error => {
+      console.error('Error fetching images:', error);
       iziToast.error({
         title: 'Error',
         message: 'Something went wrong. Please try again later.',

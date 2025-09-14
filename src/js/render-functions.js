@@ -1,8 +1,6 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-// import 'https://cdnjs.cloudflare.com/ajax/libs/css-loader/2.3.0/css-loader.min.css';
-
 export const gallery = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
@@ -11,7 +9,7 @@ export const gallery = new SimpleLightbox('.gallery a', {
 const listEl = document.querySelector('.gallery');
 const loaderEl = document.querySelector('.loader');
 
-export function createGallery(arr) {
+function renderGallery(arr) {
   return arr
     .map(
       ({
@@ -53,6 +51,11 @@ export function createGallery(arr) {
       }
     )
     .join('');
+}
+
+export function createGallery(photosArr) {
+  listEl.innerHTML = renderGallery(photosArr);
+  gallery.refresh();
 }
 
 export function clearGallery() {
